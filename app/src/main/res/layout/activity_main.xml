@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    android:background="#ffd9b3"
+
+    tools:context="rupik.com.bengali_calendar.MainActivity">
+
+    <View
+        android:id="@+id/bgView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffd9b3"
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ListView
+        android:id="@+id/calListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="44dp"
+        android:layout_below="@+id/monthNameTV"
+        ></ListView>
+
+    <Button
+        android:id="@+id/previousMonthBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/leftarrow"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        />
+
+    <Button
+        android:id="@+id/nextMonthBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:background="@drawable/rightarrow"
+        android:textColor="#33334d"
+
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/monthNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Baisakh"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/buttonbg"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:text="More Features Coming Soon"
+        />
+
+
+
+</RelativeLayout>
