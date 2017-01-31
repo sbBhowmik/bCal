@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/XMLParserDemo.iml" filepath="$PROJECT_DIR$/XMLParserDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bCal.iml" filepath="$PROJECT_DIR$/bCal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cheetah-mobile-3.4.7/cheetah-mobile-3.4.7.iml" filepath="$PROJECT_DIR$/cheetah-mobile-3.4.7/cheetah-mobile-3.4.7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unity-ads-1.5.8/unity-ads-1.5.8.iml" filepath="$PROJECT_DIR$/unity-ads-1.5.8/unity-ads-1.5.8.iml" />
     </modules>
   </component>
 </project>

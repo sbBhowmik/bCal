@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -72,16 +73,15 @@ public class CustomAdapter extends BaseAdapter {
         TextView timeTV;
         TextView dayTV;
         ImageView mrgImageView;
-        ImageButton reminderButton;
+        LinearLayout eventLayout;
+        LinearLayout eventDetailsLayout;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Holder holder=new Holder();
         View rowView;
-        rowView = inflater.inflate(R.layout.cal_listview, null);
-
-
+        rowView = inflater.inflate(R.layout.date_cell, null);
 
         holder.dateTv=(TextView) rowView.findViewById(R.id.dateTV);
         holder.engDateTv=(TextView) rowView.findViewById(R.id.engDateTV);
@@ -89,7 +89,8 @@ public class CustomAdapter extends BaseAdapter {
         holder.timeTV=(TextView) rowView.findViewById(R.id.timeTV);
         holder.dayTV=(TextView) rowView.findViewById(R.id.dayTV);
         holder.mrgImageView = (ImageView) rowView.findViewById(R.id.mrgImageIV);
-        holder.reminderButton = (ImageButton) rowView.findViewById(R.id.reminderButton);
+        holder.eventLayout = (LinearLayout)rowView.findViewById(R.id.eventLayout);
+        holder.eventDetailsLayout = (LinearLayout)rowView.findViewById(R.id.eventDetailsLayout);
 
         final HashMap dayDetails = mMonthItems.get(position);
 
@@ -98,14 +99,14 @@ public class CustomAdapter extends BaseAdapter {
         if(redMArk == null) redMArk = "0";
         if(day.toLowerCase().startsWith("sunday"))
         {
-            holder.dateTv.setTextColor(Color.parseColor("#ff0000"));
+            holder.dateTv.setTextColor(Color.parseColor("#592c01"));
         }
         else  if(redMArk.contains("1"))
         {
-            holder.dateTv.setTextColor(Color.parseColor("#800000"));
+            holder.dateTv.setTextColor(Color.parseColor("#592c01"));
         }
         else {
-            holder.dateTv.setTextColor(Color.parseColor("#33334d"));
+            holder.dateTv.setTextColor(Color.parseColor("#01280f"));
         }
 
         holder.dateTv.setText((String)dayDetails.get("date"));
@@ -113,42 +114,33 @@ public class CustomAdapter extends BaseAdapter {
         String occnText = (String)dayDetails.get("occasion");
         holder.occasionTV.setText(occnText);
 
-        if(redMArk.contains("1"))
+        if(occnText.contains("Subho Bibaho Din"))
         {
-            holder.occasionTV.setTextColor(Color.parseColor("#800000"));
+            holder.eventLayout.setVisibility(View.GONE);
         }
         else {
-            holder.occasionTV.setTextColor(Color.parseColor("#33334d"));
+            holder.eventLayout.setVisibility(View.VISIBLE);
+        }
+
+        if(redMArk.contains("1"))
+        {
+            holder.occasionTV.setTextColor(Color.parseColor("#592c01"));
+        }
+        else {
+            holder.occasionTV.setTextColor(Color.parseColor("#01280f"));
         }
         String timeStr = (String)dayDetails.get("time");
         if(timeStr == null)
         {
-            holder.timeTV.setVisibility(View.GONE);
-            holder.mrgImageView.setVisibility(View.GONE);
+            holder.eventDetailsLayout.setVisibility(View.GONE);
         }
         else {
+            holder.eventDetailsLayout.setVisibility(View.VISIBLE);
             timeStr = "Subho Bibaho Muhurto : " + timeStr;
-            holder.mrgImageView.setVisibility(View.VISIBLE);
-            holder.timeTV.setVisibility(View.VISIBLE);
             holder.timeTV.setText(timeStr);
         }
 
         holder.dayTV.setText(day);
-
-        holder.reminderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-
-                reminderDate = (String)dayDetails.get("engDay");
-                occasionName = (String)dayDetails.get("occasion");
-
-                timePickerDialog = new TimePickerDialog(context, onTimeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true);
-                timePickerDialog.show();
-            }
-        });
-
-
 
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,29 +156,4 @@ public class CustomAdapter extends BaseAdapter {
         return rowView;
     }
 
-    TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-        @Override
-        public void onTimeSet(TimePicker timePicker, int i, int i1) {
-            Calendar calNow = Calendar.getInstance();
-            Calendar calSet = (Calendar) calNow.clone();
-            calSet.set(Calendar.HOUR_OF_DAY, i);
-            calSet.set(Calendar.MINUTE, i1);
-            calSet.set(Calendar.SECOND, 0);
-            calSet.set(Calendar.MILLISECOND, 0);
-            if(calSet.compareTo(calNow) <= 0){
-                calSet.add(Calendar.DATE, 1);
-            }
-            setAlarm(calSet);
-        }
-    };
-
-    private void setAlarm(Calendar targetCal){
-
-        Intent intent = new Intent(context, AlarmReceiver.class);
-        intent.putExtra("engDate", reminderDate);
-        intent.putExtra("occasionName", occasionName);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 100, intent, 0);
-        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
-    }
 }

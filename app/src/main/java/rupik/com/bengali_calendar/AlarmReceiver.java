@@ -21,31 +21,31 @@ import android.widget.Toast;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent arg1) {
-        Uri notificationR = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-        Ringtone r = RingtoneManager.getRingtone(context, notificationR);
-        r.play();
+//        Uri notificationR = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+//        Ringtone r = RingtoneManager.getRingtone(context, notificationR);
+//        r.play();
 //        Vibrator vibrator = (Vibrator)context
 //                .getSystemService(Context.VIBRATOR_SERVICE);
 //        vibrator.vibrate(5000);
 
-        Intent notificationIntent = new Intent(context, MainActivity.class);
-
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addParentStack(MainActivity.class);
-        stackBuilder.addNextIntent(notificationIntent);
-        PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-
-        String dateStr = arg1.getStringExtra("engDate");
-        String occasionStr = arg1.getStringExtra("occasionName");
-
-        Notification notification = builder.setContentTitle("Bengali Calendar")
-                .setContentText(occasionStr)
-                .setTicker(dateStr)
-                .setSmallIcon(R.mipmap.ic_launcher).setAutoCancel(true).setPriority(Notification.PRIORITY_MAX)
-                .setContentIntent(pendingIntent).build();
-
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification);
+//        Intent notificationIntent = new Intent(context, MainActivity.class);
+//
+//        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+//        stackBuilder.addParentStack(MainActivity.class);
+//        stackBuilder.addNextIntent(notificationIntent);
+//        PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+//
+//        String dateStr = arg1.getStringExtra("engDate");
+//        String occasionStr = arg1.getStringExtra("occasionName");
+//
+//        Notification notification = builder.setContentTitle("Bengali Calendar")
+//                .setContentText(occasionStr)
+//                .setTicker(dateStr)
+//                .setSmallIcon(R.mipmap.ic_launcher).setAutoCancel(true).setPriority(Notification.PRIORITY_MAX)
+//                .setContentIntent(pendingIntent).build();
+//
+//        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+//        notificationManager.notify(0, notification);
     }
 }

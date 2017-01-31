@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cell_bg_active"
+    >
+
+    <LinearLayout
+        android:id="@+id/dateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/dateTV"
+            android:text="16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_weight="0.9"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#01280f"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/cell_bg_active"
+            />
+
+        <TextView
+            android:id="@+id/engDateTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="22-Septembar-2016"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginRight="10dp"
+            android:textColor="#01280f"
+            />
+
+        <TextView
+            android:id="@+id/dayTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thursday"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:layout_weight="0.7"
+            android:layout_gravity="center_vertical"
+            android:textColor="#01280f"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/eventLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/occasionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buddha Purnima"
+            android:textAlignment="center"
+            android:textColor="#083819"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/eventDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/mrgImageIV"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/marriageimg"
+            android:layout_weight="0.0"
+            />
+
+        <TextView
+            android:id="@+id/timeTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="From 10 pm to 1 am"
+            android:textColor="#083819"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-smallcaps"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/seperatorcolor"
+            android:layout_below="@+id/mrgImageIV"
+            android:id="@+id/view" />
+
+    </LinearLayout>
+</LinearLayout>

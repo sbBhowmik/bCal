@@ -95,14 +95,4 @@
         android:layout_alignRight="@+id/dayTV"
         android:layout_alignEnd="@+id/dayTV" />
 
-    <ImageButton
-        android:id="@+id/reminderButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitCenter"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/alarm_clock"
-        />
-
 </RelativeLayout>
