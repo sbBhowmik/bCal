@@ -15,8 +15,10 @@ import android.widget.Toast;
 
 import com.appodeal.ads.Appodeal;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -30,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     HashMap <String,String>monthNames;
     int bengaliCurrentMonth;
     int currentDisplayedMonth;
+    boolean oldDataDisplayed = true;
+
+    int currentDisplayedMonthIndex = 0;
+
+    ArrayList<MonthInfo> monthsDetails;
 
 
     @Override
@@ -52,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Appodeal.show(this, Appodeal.BANNER_BOTTOM);
 
         this.fillData();
+        populate1424Calendar();
 
         monthNames = new HashMap<String, String>();
         monthNames.put("1","Baisakh");
@@ -74,63 +82,6 @@ public class MainActivity extends AppCompatActivity {
         this.displayDataOfBongMonth(monthName);
 
 
-
-//        ListView v = (ListView)findViewById(R.id.calListView);
-//        v.setOnTouchListener(new OnSwipeTouchListener(this) {
-//            @Override
-//            public void onSwipeLeft() {
-//                super.onSwipeLeft();
-//                if(clickCount == 4)
-//                {
-//                    Appodeal.show(MainActivity.this, Appodeal.INTERSTITIAL);
-//                    clickCount = 0;
-//                }
-//                else {
-//                    clickCount ++;
-//                }
-//
-//
-//                if(currentDisplayedMonth > 1)
-//                {
-//                    currentDisplayedMonth --;
-//                    String monthName = keyOfBongMonth(currentDisplayedMonth);
-//                    displayDataOfBongMonth(monthName);
-//                }
-//                else {
-//
-//                }
-//                MainActivity.this.checkButtonVisibility();
-//            }
-//            @Override
-//            public void onSwipeRight() {
-//                super.onSwipeRight();
-//
-//                if(currentDisplayedMonth < 12)
-//                {
-//                    if(clickCount == 4)
-//                    {
-//                        Appodeal.show(MainActivity.this, Appodeal.INTERSTITIAL);
-//                        clickCount = 0;
-//                    }
-//                    else {
-//                        clickCount ++;
-//                    }
-//
-//                    currentDisplayedMonth ++;
-//                    String monthName = keyOfBongMonth(currentDisplayedMonth);
-//                    displayDataOfBongMonth(monthName);
-//                }
-//                else  {
-//
-//                }
-//                MainActivity.this.checkButtonVisibility();
-//            }
-//        });
-
-
-
-
-
         Button prevMonthBtn = (Button) findViewById(R.id.previousMonthBtn);
 
         prevMonthBtn.setOnClickListener(new View.OnClickListener() {
@@ -146,52 +97,36 @@ public class MainActivity extends AppCompatActivity {
                     clickCount ++;
                 }
 
-                if(currentDisplayedMonth > 1)
+                if(currentDisplayedMonth > 1 && oldDataDisplayed==true)
                 {
                     currentDisplayedMonth --;
                     String monthName = keyOfBongMonth(currentDisplayedMonth);
                     displayDataOfBongMonth(monthName);
                 }
                 else {
+                    if(currentDisplayedMonthIndex == 0)
+                    {
+                        currentDisplayedMonth --;
+                        String monthName = keyOfBongMonth(currentDisplayedMonth);
+                        displayDataOfBongMonth(monthName);
+                    }
+                    else {
+                        if (currentDisplayedMonthIndex > 0){
+                            currentDisplayedMonthIndex--;
+                            displayCal();
+                        }
+                    }
                 }
                 MainActivity.this.checkButtonVisibility();
             }
         });
-
-//        asesrt prevMonthBtn != null;
-//        prevMonthBtn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View v) {
-//
-//                if(clickCount == 4)
-//                {
-//                    Appodeal.show(MainActivity.this, Appodeal.INTERSTITIAL);
-//                    clickCount = 0;
-//                }
-//                else {
-//                    clickCount ++;
-//                }
-//
-//                if(currentDisplayedMonth > 1)
-//                {
-//                    currentDisplayedMonth --;
-//                    String monthName = keyOfBongMonth(currentDisplayedMonth);
-//                    displayDataOfBongMonth(monthName);
-//                }
-//                else {
-//                }
-//                MainActivity.this.checkButtonVisibility();
-////                Toast.makeText(getApplicationContext(), "Btn Clkd", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
 
         final Button nextMonthBtn = (Button)findViewById(R.id.nextMonthBtn);
         assert nextMonthBtn != null;
         nextMonthBtn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                if(currentDisplayedMonth < 12)
+                if(currentDisplayedMonth < 12 && oldDataDisplayed)
                 {
                     if(clickCount == 5)
                     {
@@ -207,6 +142,11 @@ public class MainActivity extends AppCompatActivity {
                     displayDataOfBongMonth(monthName);
                 }
                 else  {
+                    if(currentDisplayedMonthIndex < monthsDetails.size()-1)
+                    {
+                        currentDisplayedMonthIndex++;
+                        displayCal();
+                    }
                 }
 
                 MainActivity.this.checkButtonVisibility();
@@ -214,10 +154,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
-
-
-
+    void displayCal()
+    {
+        MonthInfo monthInfo = monthsDetails.get(currentDisplayedMonthIndex);
+        CustomAdapter adapter = new CustomAdapter(monthInfo, this);
+        ListView lv = (ListView)findViewById(R.id.calListView);
+        lv.setAdapter(adapter);
     }
 
     void checkButtonVisibility()
@@ -233,7 +177,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if(currentDisplayedMonth == 12)
         {
-            nextMonthBtn.setVisibility(View.INVISIBLE);
+            oldDataDisplayed = false;
+//            nextMonthBtn.setVisibility(View.INVISIBLE);
         }
         else {
             nextMonthBtn.setVisibility(View.VISIBLE);
@@ -266,6 +211,25 @@ public class MainActivity extends AppCompatActivity {
 
     void findCurrentBengaliMonth()
     {
+        //New Logic for 1424
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date strDate = sdf.parse("15/04/2017");
+            if (new Date().after(strDate)) {
+                //old Logic
+//                oldDataDisplayed = true;
+            } else {
+                //new Logic
+//                oldDataDisplayed = false;
+            }
+        }
+        catch (ParseException e)
+        {
+            Toast.makeText(this,"ParseException !!!", Toast.LENGTH_LONG).show();
+        }
+        //
+
+
         //find current bengali month
         int currentYear = Integer.parseInt((String)  new SimpleDateFormat("yyyy").format(new Date()));
         int currentDate = Integer.parseInt((String)  new SimpleDateFormat("dd").format(new Date()));
@@ -1850,6 +1814,171 @@ public class MainActivity extends AppCompatActivity {
         //------------------------
 
         monthArrList = new ArrayList<HashMap>();
+
+
+    }
+
+    void populate1424Calendar()
+    {
+        monthsDetails = new ArrayList<>();
+
+        MonthInfo monthInfo = new MonthInfo();
+
+        monthInfo.setMonthName("Baisakh");
+        monthInfo.setNumberOfDaysInMonth(31);
+
+        Date date;
+        Calendar cal = Calendar.getInstance();
+        cal.set(2017,4, 15);
+        date = cal.getTime();
+        monthInfo.setStartDate(date);
+
+        cal.set(2017,5, 15);
+        date = cal.getTime();
+        monthInfo.setEndDate(date);
+
+        ArrayList<DateInfo> specialDates = new ArrayList<>();
+
+        DateInfo dateInfo = new DateInfo();
+        dateInfo.setDate(1);
+        dateInfo.setOccasionName("Nabo barsho \nAnnapurna Puja");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(2);
+        dateInfo.setOccasionName("Bashanti Puja");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(5);
+        dateInfo.setOccasionName("Ekadashi");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(6);
+        dateInfo.setOccasionName("Mahabir Joynti");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(9);
+        dateInfo.setOccasionName("Purnima");
+        dateInfo.setOccasionDetails("From 00.00pm to 00.00 pm for testing purpose");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(18);
+        dateInfo.setOccasionName("May Day");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(20);
+        dateInfo.setOccasionName("Ekadashi");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(22);
+        dateInfo.setOccasionName("Shoby-mi-raaz ");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(23);
+        dateInfo.setOccasionName("Amavasha");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(25);
+        dateInfo.setOccasionName("Rabindra Joynti");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(26);
+        dateInfo.setOccasionName("Akhoy Tretiya");
+        specialDates.add(dateInfo);
+
+        monthInfo.setSpecialDates(specialDates);
+
+        monthsDetails.add(monthInfo);
+
+
+        //===
+
+
+        monthInfo = new MonthInfo();
+
+        monthInfo.setMonthName("Jaistha");
+        monthInfo.setNumberOfDaysInMonth(30);
+
+        cal = Calendar.getInstance();
+        cal.set(2017,5, 16);
+        date = cal.getTime();
+        monthInfo.setStartDate(date);
+
+        cal.set(2017,6, 15);
+        date = cal.getTime();
+        monthInfo.setEndDate(date);
+
+        specialDates = new ArrayList<>();
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(1);
+        dateInfo.setOccasionName("Nabo barsho \nAnnapurna Puja");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(2);
+        dateInfo.setOccasionName("Bashanti Puja");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(5);
+        dateInfo.setOccasionName("Ekadashi");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(6);
+        dateInfo.setOccasionName("Mahabir Joynti");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(9);
+        dateInfo.setOccasionName("Purnima");
+        dateInfo.setOccasionDetails("From 00.00pm to 00.00 pm for testing purpose");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(18);
+        dateInfo.setOccasionName("May Day");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(20);
+        dateInfo.setOccasionName("Ekadashi");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(22);
+        dateInfo.setOccasionName("Shoby-mi-raaz ");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(23);
+        dateInfo.setOccasionName("Amavasha");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(25);
+        dateInfo.setOccasionName("Rabindra Joynti");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(26);
+        dateInfo.setOccasionName("Akhoy Tretiya");
+        specialDates.add(dateInfo);
+
+        monthInfo.setSpecialDates(specialDates);
+
+        monthsDetails.add(monthInfo);
+
 
 
     }
