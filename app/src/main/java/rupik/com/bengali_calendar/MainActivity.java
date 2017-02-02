@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int currentDisplayedMonth;
     boolean oldDataDisplayed = true;
 
-    int currentDisplayedMonthIndex = 0;
+    int currentDisplayedMonthIndex = -1;
 
     ArrayList<MonthInfo> monthsDetails;
 
@@ -106,7 +106,9 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     if(currentDisplayedMonthIndex == 0)
                     {
-                        currentDisplayedMonth --;
+                        currentDisplayedMonthIndex=-1; //reset here
+                        currentDisplayedMonth = 12;
+                        oldDataDisplayed = true;
                         String monthName = keyOfBongMonth(currentDisplayedMonth);
                         displayDataOfBongMonth(monthName);
                     }
@@ -114,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
                         if (currentDisplayedMonthIndex > 0){
                             currentDisplayedMonthIndex--;
                             displayCal();
+                        }
+                        else if(currentDisplayedMonthIndex==-1)
+                        {
+                            //restore oldDislay
+                            oldDataDisplayed = true;
+                            currentDisplayedMonth --;
+                            String monthName = keyOfBongMonth(currentDisplayedMonth);
+                            displayDataOfBongMonth(monthName);
                         }
                     }
                 }
@@ -153,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), "Btn Clkd", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     void displayCal()
@@ -162,6 +171,10 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter adapter = new CustomAdapter(monthInfo, this);
         ListView lv = (ListView)findViewById(R.id.calListView);
         lv.setAdapter(adapter);
+
+        TextView monthTitleTV = (TextView) findViewById(R.id.monthNameTV);
+        monthTitleTV.setText(monthInfo.getMonthName().toUpperCase());
+        monthTitleTV.setTextColor(Color.parseColor("#083819"));
     }
 
     void checkButtonVisibility()
@@ -213,14 +226,16 @@ public class MainActivity extends AppCompatActivity {
     {
         //New Logic for 1424
         try {
+
+            Date currentDate = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date strDate = sdf.parse("15/04/2017");
-            if (new Date().after(strDate)) {
+            if (currentDate.after(strDate)) {
                 //old Logic
-//                oldDataDisplayed = true;
+                oldDataDisplayed = false;
             } else {
                 //new Logic
-//                oldDataDisplayed = false;
+                oldDataDisplayed = true;
             }
         }
         catch (ParseException e)
@@ -1824,7 +1839,7 @@ public class MainActivity extends AppCompatActivity {
 
         MonthInfo monthInfo = new MonthInfo();
 
-        monthInfo.setMonthName("Baisakh");
+        monthInfo.setMonthName("Baisakh\n15th April 2017 - 15th May 2017");
         monthInfo.setNumberOfDaysInMonth(31);
 
         Date date;
@@ -1905,7 +1920,7 @@ public class MainActivity extends AppCompatActivity {
 
         monthInfo = new MonthInfo();
 
-        monthInfo.setMonthName("Jaistha");
+        monthInfo.setMonthName("Jaistha\n16th May 2017 - 15th June 2017");
         monthInfo.setNumberOfDaysInMonth(30);
 
         cal = Calendar.getInstance();
