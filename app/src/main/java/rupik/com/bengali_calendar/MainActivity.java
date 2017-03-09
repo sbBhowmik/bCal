@@ -2320,5 +2320,471 @@ public class MainActivity extends AppCompatActivity {
         monthInfo.setSpecialDates(specialDates);
 
         monthsDetails.add(monthInfo);
+
+
+        monthInfo = new MonthInfo();
+
+        monthInfo.setMonthName("Bhadro\n18th August 2017 - 17th Septembar 2017");
+        monthInfo.setNumberOfDaysInMonth(31);
+
+        cal = Calendar.getInstance();
+        cal.set(2017,8, 18);
+        date = cal.getTime();
+        monthInfo.setStartDate(date);
+
+        cal.set(2017,9, 17);
+        date = cal.getTime();
+        monthInfo.setEndDate(date);
+
+        specialDates = new ArrayList<>();
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(1);
+        dateInfo.setOccasionName("Ekadashi");
+        dateInfo.setOccasionDetails("Ekadashi From Previous Morning 10.57 am to 08.29 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(4);
+        dateInfo.setOccasionName("Amavasya");
+        dateInfo.setOccasionDetails("Amavasya From Previous Night 01.53 am to 12.10 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(6);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 07.16 pm to 02.29 am & 03:54am to 04:55 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(7);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 07.33 pm to 09.30 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(8);
+        dateInfo.setOccasionName("Ganesh Chathurthi");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(9);
+        dateInfo.setOccasionName("Mother Teresa Birthday");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 07.24 pm to 03.45 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(10);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 07.01 pm to 07.37 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(13);
+        dateInfo.setOccasionName("Anukul Thakur Shubo Abirbhab Tithi");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(16);
+        dateInfo.setOccasionName("Ekadashi \nEid Ul Azha (Bhakri Id)");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 07.19 pm to 03.56 am \nEkadashi From Previous Morning 06.47 am to 08.39 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(17);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 06.33 pm to 01.03 am & 02:30 am to 04:11 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(18);
+        dateInfo.setOccasionName("Sadh-Bhakkhan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(19);
+        dateInfo.setOccasionName("Teacher's Day \nMother Teresa Praya Dibash");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(20);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nPurnima");
+        dateInfo.setOccasionDetails("Purnima From Previous Afternoon 12.06 pm to 12.16 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(22);
+        dateInfo.setOccasionName("Swami Abhedananda ji Tirobhab Dibash");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 05.47 pm to 07.51 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(26);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 05.43 pm to 07.10 pm & 08:38 pm to 09:08 pm & 11:06 pm to 03:35 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(27);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 05.42 pm to 09.04 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(30);
+        dateInfo.setOccasionName("Ekadashi");
+        dateInfo.setOccasionDetails("Ekadashi From Previous Evening 06.36 pm to 04.22 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(31);
+        dateInfo.setOccasionName("Vishwakarma Puja");
+        specialDates.add(dateInfo);
+
+        monthInfo.setSpecialDates(specialDates);
+
+        monthsDetails.add(monthInfo);
+
+
+        monthInfo = new MonthInfo();
+
+        monthInfo.setMonthName("Ashwin\n18th Septembar 2017 - 18th Octobar 2017");
+        monthInfo.setNumberOfDaysInMonth(31);
+
+        cal = Calendar.getInstance();
+        cal.set(2017,9, 18);
+        date = cal.getTime();
+        monthInfo.setStartDate(date);
+
+        cal.set(2017,10, 18);
+        date = cal.getTime();
+        monthInfo.setEndDate(date);
+
+        specialDates = new ArrayList<>();
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(2);
+        dateInfo.setOccasionName("Mahalaya");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(3);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAmavasya");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 11.43 pm to 02.29 am & 03:59 am to 05:15 am \nAmavasya From Previous Morning 11:24 am to 10:30 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(4);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 06.52 pm to 11.031 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(5);
+        dateInfo.setOccasionName("Annaprasan");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 01.20 am to 05.07 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(8);
+        dateInfo.setOccasionName("Annaprasan");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 06.36 pm to 09.59 pm & 11:29 pm to 04:55 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(9);
+        dateInfo.setOccasionName("Maha Shashthi");
+        dateInfo.setOccasionDetails("Durga Shashthi Upto 03.23 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(10);
+        dateInfo.setOccasionName("Maha Saptami (Devi Agomon Noukai) \nSadh-Bhakkhan");
+        dateInfo.setOccasionDetails("Durga Saptami Upto 05.26 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(11);
+        dateInfo.setOccasionName("Maha Ashtami \nSandhi Puja");
+        dateInfo.setOccasionDetails("Durga Saptami Upto 07.31 pm \nSandhi Puja from 07:07 pm to 07:55 pm (Bali Daan from 07:31 pm)");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(12);
+        dateInfo.setOccasionName("Maha Navami");
+        dateInfo.setOccasionDetails("Durga Navami Upto 09.25 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(13);
+        dateInfo.setOccasionName("Dashami / Dusshera");
+        dateInfo.setOccasionDetails("Dashami Upto 11.02 pm \nDevir Gomon Ghotoke");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(14);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nEkadashi");
+        dateInfo.setOccasionDetails("Ekadashi From Previous Night 11.02 pm to 12.14 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(15);
+        dateInfo.setOccasionName("Gandhi Jayanti \nSwami Abhedananda ji Abirbhab Dibash");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(18);
+        dateInfo.setOccasionName("Purnima \nSri Sri Kojagari Lakshmi Puja");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 09.43 pm to 11.26 pm & 12:58 am to 04:15 am \nPurnima- Previous Night 12:54 am to 12:07 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(22);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 07.21 pm to 08.20 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(23);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 09.47 pm to 01.44 am & 03:56 am to 05:35 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(28);
+        dateInfo.setOccasionName("Ekadashi");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 06.58 pm to 12.57 am  & 03:36 am to 05:38 am \nEkadashi From Previous Night 03.42 am to 02.02 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(30);
+        dateInfo.setOccasionName("Dhantaras");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(31);
+        dateInfo.setOccasionName("Bhoot Chaturdashi ");
+        specialDates.add(dateInfo);
+
+        monthInfo.setSpecialDates(specialDates);
+
+        monthsDetails.add(monthInfo);
+
+
+
+        monthInfo = new MonthInfo();
+
+        monthInfo.setMonthName("Kartik\n19th Octobar 2017 - 17th Novembar 2017");
+        monthInfo.setNumberOfDaysInMonth(30);
+
+        cal = Calendar.getInstance();
+        cal.set(2017,10, 19);
+        date = cal.getTime();
+        monthInfo.setStartDate(date);
+
+        cal.set(2017,11, 17);
+        date = cal.getTime();
+        monthInfo.setEndDate(date);
+
+        specialDates = new ArrayList<>();
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(1);
+        dateInfo.setOccasionName("Kali Puja \nAmavasya \nDipawita Lakshmi Puja");
+        dateInfo.setOccasionDetails("Amavasya From Previous Night 12.46 am to 11.52 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(2);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(3);
+        dateInfo.setOccasionName("Bhai Phota");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(6);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 11:26 pm to 12:48 am  & 02:29 am to 05:42 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(7);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 06.17 pm to 07:23 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(8);
+        dateInfo.setOccasionName("Chhat Puja");
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 09.56 pm to 11.22 pm  & 02:51 am to 04:31 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(10);
+        dateInfo.setOccasionName("Sister Nivedita's Birthday");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(11);
+        dateInfo.setOccasionName("Jagodhatri Puja");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(12);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(13);
+        dateInfo.setOccasionName("Ekadashi \nSwami Subodhananda Abirbhab Tithi");
+        dateInfo.setOccasionDetails("Ekadashi From Previous Day 02.50 pm to 03.04 am");
+        specialDates.add(dateInfo);
+
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(15);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(16);
+        dateInfo.setOccasionName("Sri Krishna's Raas Yatra");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(17);
+        dateInfo.setOccasionName("Raas Purnima \nSri Krishna's Raas Yatra \nGuru Nanak Birthday");
+        dateInfo.setOccasionDetails("Raas Purnima From Previous Day 12.50 pm to 11.16 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(24);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 10.26 pm to 11.37 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(26);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 04.16 am to 05.54 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(27);
+        dateInfo.setOccasionName("Ekadashi \nChildren's Day \nSwami Shivananda ji Jamna Tithi");
+        dateInfo.setOccasionDetails("Ekadashi From Previous Afternoon 03.05 pm to 02.18 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(28);
+        dateInfo.setOccasionDetails("Atirikto Bibaho Muhorto From 06:53 pm to 11:22 pm  & 04:16 am to 05:55 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(30);
+        dateInfo.setOccasionName("Karthik Puja");
+        specialDates.add(dateInfo);
+
+        monthInfo.setSpecialDates(specialDates);
+
+        monthsDetails.add(monthInfo);
+
+
+
+
+        monthInfo = new MonthInfo();
+
+        monthInfo.setMonthName("Agrahayan\n18th Novembar 2017 - 16th Decembar 2017");
+        monthInfo.setNumberOfDaysInMonth(29);
+
+        cal = Calendar.getInstance();
+        cal.set(2017,11, 18);
+        date = cal.getTime();
+        monthInfo.setStartDate(date);
+
+        cal.set(2017,12, 16);
+        date = cal.getTime();
+        monthInfo.setEndDate(date);
+
+        specialDates = new ArrayList<>();
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(1);
+        dateInfo.setOccasionName("Amavasya");
+        dateInfo.setOccasionDetails("Amavasya From Previous afternoon 02.56 pm to 04.09 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(2);
+        dateInfo.setOccasionName("Itu Puja");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(3);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(6);
+        dateInfo.setOccasionName("Annaprasan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(11);
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 05:59 pm to 06.27 pm & 08:06 pm to 12:39 am & 02:49 am to 06:04 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(12);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nEkadashi");
+        dateInfo.setOccasionDetails("Ekadashi From Previous Night 05:37 am to 04:52 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(13);
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 06.50 pm to 11:26 pm & 02:41 am to 06:05 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(14);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nAnnaprasan");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(15);
+        dateInfo.setOccasionName("Fateha Duaz Daham");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(16);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nPurnima");
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 05:39 pm to 12:19 am & 02:47 am to 06:07 am \nPurnima From Previous Night 12:13 am to 10:07 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(17);
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 05:35 pm to 09:48 pm & 11:28 pm to 12:15 am & 02:25 am to 06:08 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(22);
+        dateInfo.setOccasionName("Rishi Arobindu Mahasamadhi");
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 08:10 pm to 11:46 pm");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(23);
+        dateInfo.setOccasionName("Swami Premananda ji Abirbhab Dibash \nMaa Sarada Devi Janma Tithi o Dibash \nItu Puja ");
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 11:06 pm to 11:52 pm & 02:51 am to 05:03 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(25);
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto This night 05:15 am to 06:13 am");
+        specialDates.add(dateInfo);
+
+        dateInfo = new DateInfo();
+        dateInfo.setDate(26);
+        dateInfo.setOccasionName("Sadh-Bhakkhan \nEkadashi");
+        dateInfo.setOccasionDetails("Subho Bibaho Muhorto From 05:00 pm to 11:40 pm  \nEkadashi From Previous Night 05:15 am to 05:32 am");
+        specialDates.add(dateInfo);
+
+        monthInfo.setSpecialDates(specialDates);
+
+        monthsDetails.add(monthInfo);
+
     }
 }
